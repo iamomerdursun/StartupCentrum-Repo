@@ -1,9 +1,16 @@
+using Repository;
+using Repository.DesingPattern;
+using Repository.Repository.Student;
+using Repository.Repository.StudentRepo;
 
-using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-//builder.Services.AddTransient<DataContext>();
+#region DI
+builder.Services.AddTransient<AppDbContext>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+#endregion
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -17,8 +24,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-
 
 app.UseHttpsRedirection();
 
