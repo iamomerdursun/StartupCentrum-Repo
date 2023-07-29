@@ -1,5 +1,7 @@
 using Repository;
 using Repository.DesingPattern;
+using Repository.Repository.LessonRepo;
+using Repository.Repository.NotesRepo;
 using Repository.Repository.Student;
 using Repository.Repository.StudentRepo;
 
@@ -9,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 #region DI
 builder.Services.AddTransient<AppDbContext>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<ILessonRepo, LessonRepo>();
+builder.Services.AddScoped<INotesRepo, NotesRepo>();
 #endregion
 
 builder.Services.AddControllers();
