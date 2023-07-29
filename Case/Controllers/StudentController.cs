@@ -102,7 +102,7 @@ namespace Case.Controllers
                 return BadRequest();
             }
         }
-
+        //Öğrenci Silme Methodu
         [HttpPost("Delete")]
         public IActionResult Delete(long id)
         {
