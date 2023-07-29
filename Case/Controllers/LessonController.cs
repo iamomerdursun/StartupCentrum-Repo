@@ -23,6 +23,7 @@ namespace Case.Controllers
         {
             try
             {
+                // Gelen verileri kullanarak yeni bir ders ekler.
                 _lessonRepo.Add(new Lesson()
                 {
                     Credit = vm.Credit,
@@ -32,6 +33,7 @@ namespace Case.Controllers
             }
             catch (Exception)
             {
+                // Eğer bir hata oluşursa 400 Bad Request yanıtı döner.
                 return BadRequest();
             }
         }
@@ -42,6 +44,7 @@ namespace Case.Controllers
         {
             try
             {
+                // Gelen verileri kullanarak bir dersi günceller.
                 _lessonRepo.Update(new Lesson()
                 {
                     Credit = vm.Credit,
@@ -51,6 +54,7 @@ namespace Case.Controllers
             }
             catch (Exception)
             {
+                // Eğer bir hata oluşursa 400 Bad Request yanıtı döner.
                 return BadRequest();
             }
         }
@@ -61,11 +65,13 @@ namespace Case.Controllers
         {
             try
             {
+                // Tüm dersleri getirir.
                 var result = _lessonRepo.GetAll();
                 return Ok(result);
             }
             catch (Exception)
             {
+                // Eğer bir hata oluşursa 400 Bad Request yanıtı döner.
                 return BadRequest();
             }
         }
@@ -76,11 +82,13 @@ namespace Case.Controllers
         {
             try
             {
+                // Belirli bir dersi getirir.
                 var result = _lessonRepo.Get(x => x.Id == id);
                 return Ok(result);
             }
             catch (Exception)
             {
+                // Eğer bir hata oluşursa 400 Bad Request yanıtı döner.
                 return BadRequest();
             }
         }
@@ -91,6 +99,7 @@ namespace Case.Controllers
         {
             try
             {
+                // Belirli bir dersi siler.
                 var lesson = _lessonRepo.Get(x => x.Id == id);
                 if (lesson == null)
                 {
@@ -102,6 +111,7 @@ namespace Case.Controllers
             }
             catch (Exception)
             {
+                // Eğer bir hata oluşursa 400 Bad Request yanıtı döner.
                 return BadRequest();
             }
         }

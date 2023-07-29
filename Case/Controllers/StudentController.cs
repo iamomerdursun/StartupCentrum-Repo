@@ -20,6 +20,7 @@ namespace Case.Controllers
         {
             try
             {
+                // Her alanın değerine göre öğrencinin doluluk oranı hesaplanır.
                 int rate = 0;
                 if (vm.Surname != null) rate += 20;
                 if (vm.Name != null) rate += 20;
@@ -50,6 +51,7 @@ namespace Case.Controllers
         {
             try
             {
+                // Her alanın değerine göre öğrencinin doluluk oranı hesaplanır.
                 int rate = 0;
                 if (vm.Surname != null) rate += 20;
                 if (vm.Name != null) rate += 20;
@@ -80,6 +82,7 @@ namespace Case.Controllers
         {
             try
             {
+                // Tüm öğrencileri doluluk oranlarına göre azalan şekilde getirir.
                 var rest = _studentRepository.GetAll().OrderByDescending(x => x.Rate).ToList();
                 return Ok(rest);
             }
@@ -94,6 +97,7 @@ namespace Case.Controllers
         {
             try
             {
+                // Belirli bir öğrenciyi getirir.
                 var rest = _studentRepository.Get(x => x.Id == id);
                 return Ok(rest);
             }
@@ -108,9 +112,11 @@ namespace Case.Controllers
         {
             try
             {
+                // Belirli bir öğrenciyi siler.
                 var student = _studentRepository.Get(x => x.Id == id);
                 if (student == null)
                 {
+                    // Öğrenci bulunamazsa 404 Not Found yanıtı döner.
                     return NotFound("Student not found");
                 }
 
@@ -128,9 +134,11 @@ namespace Case.Controllers
         {
             try
             {
+                // Belirli bir öğrencinin doluluk oranını getirir.
                 var student = _studentRepository.Get(x => x.Id == id);
                 if (student == null)
                 {
+                    // Öğrenci bulunamazsa 404 Not Found yanıtı döner.
                     return NotFound("Student not found");
                 }
 

@@ -16,6 +16,7 @@ namespace Repository.DesingPattern
     {
         public void Add(TEntity entity)
         {
+            // Yeni bir öğe eklemek için veritabanı bağlaması oluşturulur ve öğe eklenir.
             using (TContext context = new TContext())
             {
                 var addedEntity = context.Entry(entity);
@@ -26,6 +27,7 @@ namespace Repository.DesingPattern
         }
         public void Delete(TEntity entity)
         {
+            // Mevcut bir öğeyi silmek için veritabanı bağlaması oluşturulur ve öğe silinir.
             using (TContext context = new TContext())
             {
                 var deletedEntity = context.Entry(entity);
@@ -35,6 +37,7 @@ namespace Repository.DesingPattern
         }
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
+            // Belirli bir öğeyi getirmek için veritabanı bağlaması oluşturulur ve LINQ sorgusu çalıştırılır.
             using (TContext context = new TContext())
             {
                 return context.Set<TEntity>().SingleOrDefault(filter);
@@ -42,6 +45,7 @@ namespace Repository.DesingPattern
         }
         public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
         {
+            // Tüm öğeleri getirmek için veritabanı bağlaması oluşturulur ve LINQ sorgusu çalıştırılır.
             using (TContext context = new TContext())
             {
                 return filter == null
@@ -50,7 +54,8 @@ namespace Repository.DesingPattern
             }
         }
         public void Update(TEntity entity)
-        {
+        {        
+            // Mevcut bir öğeyi güncellemek için veritabanı bağlaması oluşturulur ve öğe güncellenir.
             using (TContext context = new TContext())
             {
                 var updateEntity = context.Entry(entity);

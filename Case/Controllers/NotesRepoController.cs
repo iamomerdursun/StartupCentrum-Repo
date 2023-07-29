@@ -22,6 +22,7 @@ namespace Case.Controllers
         {
             try
             {
+                // Gelen verileri kullanarak yeni bir not ekler.
                 _notesRepo.Add(new Notes()
                 {
                     Butt = vm.Butt,
@@ -34,6 +35,7 @@ namespace Case.Controllers
             }
             catch (Exception)
             {
+                // Eğer bir hata oluşursa 400 Bad Request yanıtı döner.
                 return BadRequest();
             }
         }
@@ -43,6 +45,7 @@ namespace Case.Controllers
         {
             try
             {
+                // Gelen verileri kullanarak bir not günceller.
                 _notesRepo.Update(new Notes()
                 {
                     Butt = vm.Butt,
@@ -55,6 +58,7 @@ namespace Case.Controllers
             }
             catch (Exception)
             {
+                // Eğer bir hata oluşursa 400 Bad Request yanıtı döner.
                 return BadRequest();
             }
         }
@@ -64,11 +68,13 @@ namespace Case.Controllers
         {
             try
             {
+                // Tüm notları getirir.
                 var result = _notesRepo.GetAll();
                 return Ok(result);
             }
             catch (Exception)
             {
+                // Eğer bir hata oluşursa 400 Bad Request yanıtı döner.
                 return BadRequest();
             }
         }
@@ -78,11 +84,13 @@ namespace Case.Controllers
         {
             try
             {
+                // Belirli bir öğrencinin tüm notlarını getirir.
                 var result = _notesRepo.GetAll(x => x.StudentId == id);
                 return Ok(result);
             }
             catch (Exception)
             {
+                // Eğer bir hata oluşursa 400 Bad Request yanıtı döner.
                 return BadRequest();
             }
         }
@@ -92,11 +100,13 @@ namespace Case.Controllers
         {
             try
             {
+                // Belirli bir notu getirir.
                 var result = _notesRepo.GetAll(x => x.Id == id);
                 return Ok(result);
             }
             catch (Exception)
             {
+                // Eğer bir hata oluşursa 400 Bad Request yanıtı döner.
                 return BadRequest();
             }
         }
@@ -106,9 +116,11 @@ namespace Case.Controllers
         {
             try
             {
+                // Belirli bir notu siler.
                 var note = _notesRepo.Get(x => x.Id == id);
                 if (note == null)
                 {
+                    // Not bulunamazsa 404 Not Found yanıtı döner.
                     return NotFound("Note not found");
                 }
 
@@ -117,6 +129,7 @@ namespace Case.Controllers
             }
             catch (Exception)
             {
+                // Eğer bir hata oluşursa 400 Bad Request yanıtı döner.
                 return BadRequest();
             }
         }
