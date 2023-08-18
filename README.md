@@ -1,5 +1,5 @@
 # University Student Registration System
-#ORM - Entity Framework
+# ORM - Entity Framework
   Bu proje, Entity Framework Core kullanarak veritabanı ile nesneler arasında dönüşüm yapmayı ve veritabanı işlemlerini kolaylaştırmayı amaçlamaktadır. Entity Framework, LINQ (Language Integrated Query) sorgularını destekleyerek, veritabanı işlemlerini nesne odaklı bir şekilde yönetmemizi sağlar. Böylece, veritabanı tablolarını C# sınıflarıyla temsil ederek, veri işlemlerini daha kolay ve daha anlaşılır hale getirir.
 # Code First
   Code First yaklaşımı, Entity Framework kullanarak veritabanı tasarlamak için veritabanı şemalarını C# sınıflarıyla oluşturmayı ifade eder. Yani, C# sınıfları yazarak ve Entity Framework'ün Code First özelliğini kullanarak, veritabanı tablolarını otomatik olarak oluşturabiliriz. Proje, Code First yaklaşımını kullanarak, veritabanındaki tabloların model sınıfları tarafından yönetildiği bir veritabanı yapısını uygulamaktadır.
