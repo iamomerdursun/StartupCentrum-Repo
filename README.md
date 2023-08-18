@@ -1,4 +1,4 @@
-# StartupCentrum-Repo
+# University Student Registration System
 #ORM - Entity Framework
   Bu proje, Entity Framework Core kullanarak veritabanı ile nesneler arasında dönüşüm yapmayı ve veritabanı işlemlerini kolaylaştırmayı amaçlamaktadır. Entity Framework, LINQ (Language Integrated Query) sorgularını destekleyerek, veritabanı işlemlerini nesne odaklı bir şekilde yönetmemizi sağlar. Böylece, veritabanı tablolarını C# sınıflarıyla temsil ederek, veri işlemlerini daha kolay ve daha anlaşılır hale getirir.
 # Code First
